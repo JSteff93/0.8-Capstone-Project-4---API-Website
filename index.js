@@ -13,10 +13,11 @@ const config = {
 };
 
 app.get("/", async (req, res) => {
-    const projects = await axios.get(API_URL + "/projects", config)
+    const projects = await axios.get(API_URL + "/projects", config);
+    const sections = await axios.get(API_URL + "/sections", config);
+    const tasks = await axios.get(API_URL + "/tasks", config);
 
-    console.log(JSON.stringify(projects.data));
-    res.render("index.ejs", { projects: projects.data });
+    res.render("index.ejs", { projects: projects.data, sections: sections.data, tasks: tasks.data });
   });
 
 app.listen(port, () => {
