@@ -1,46 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do</title>
-</head>
+<%- include("header.ejs") %>
 <body>
-    <% if (locals.projects) { %>
-        <% projects.forEach(project => { %>
-            <div>
-                <h2>
-                    <%= project.name %>
-                </h2>
-                <ul>
-                    <% tasks.forEach(task => { %>
-                        <% if (task.section_id === null) { %>
-                            <% if (task.project_id === project.id) { %>
-                                <li>
-                                    <%= task.content %>
-                                </li>
-                            <% } %>
-                        <% } %>
-                    <% }) %>
-                </ul>
-                <% sections.forEach(section => { %>
-                    <% if (section.project_id === project.id) { %>
-                        <h3>
-                            <%= section.name %>
-                        </h3>
-                        <ul>
+    <div class="container">
+        <% if (locals.projects) { %>
+            <% projects.forEach(project => { %>
+                <div>
+                    <h2>
+                        <%= project.name %>
+                    </h2>
+                    <ul>
                         <% tasks.forEach(task => { %>
-                            <% if (task.section_id === section.id) { %>
-                                <li>
-                                    <%= task.content %>
-                                </li>
+                            <% if (task.section_id === null) { %>
+                                <% if (task.project_id === project.id) { %>
+                                    <li>
+                                        <%= task.content %>
+                                    </li>
+                                <% } %>
                             <% } %>
                         <% }) %>
-                        </ul>
-                    <% } %>
-                <% }) %>
-            </div>
-        <% }) %>
-    <% } %>
+                    </ul>
+                    <% sections.forEach(section => { %>
+                        <% if (section.project_id === project.id) { %>
+                            <h3>
+                                <%= section.name %>
+                            </h3>
+                            <ul>
+                            <% tasks.forEach(task => { %>
+                                <% if (task.section_id === section.id) { %>
+                                    <li>
+                                        <%= task.content %>
+                                    </li>
+                                <% } %>
+                            <% }) %>
+                            </ul>
+                        <% } %>
+                    <% }) %>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
 </body>
 </html>
