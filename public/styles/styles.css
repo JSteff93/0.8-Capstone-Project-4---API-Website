@@ -1,3 +1,6 @@
+* {
+    font-family: "Courier Prime", monospace;
+}
 body {
     background-color: #ADBC9F;
     margin: 0;
@@ -22,9 +25,41 @@ header {
 h1 {
     font-size: 50px;
     margin: 5px;
-    font-family: "Courier Prime", monospace;
     color: #FBFADA;
 }
 .container {
     margin-top: 100px;
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.navcont {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+.navdiv {
+    height: 35px;
+    font-size: 20px;
+    padding: 0 10px;
+    margin: 0 10px;
+    color: #FBFADA;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.navs {
+    text-decoration: none;
+    color:#FBFADA;
+}
+.navs:hover {
+    color:#12372A
+}
+.navdiv:hover {
+    background-color: #ADBC9F;
+    color:#12372A;
+}
+

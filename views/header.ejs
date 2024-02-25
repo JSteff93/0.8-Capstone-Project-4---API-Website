@@ -16,6 +16,23 @@
             <img src="assets/logo.svg" alt="tape measure logo" height="50" class="logo1">
             <h1 class="title">Sitey</h1>
         </div>
+        <div class="navcont">
+            <div class="navdiv">
+                <a class="navs" href="/">
+                    Today
+                </a>
+            </div>
+            <% if (locals.projects) { %>
+                <% projects.forEach(project => { %>
+                    <div class="navdiv">
+                        <a class="navs" href="/">
+                            <%= project.name %>
+                        </a>
+                    </div>
+            <% }) %>
+            <%}%>  
+        </div>
+
     </div>
 </header>
 </html>
